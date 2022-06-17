@@ -9,7 +9,7 @@ const usersRouter = require('./routes/usersRouter')
 const authRouter = require('./routes/authRouter')
 
 const app = express()
-const PORT = process.env. || 6000
+const PORT = process.env.PORT || 6000
 
 
 //* middleware
