@@ -1,6 +1,6 @@
 
 const express = require('express')
-require('dotenv').config() // init dotenvs
+require('dotenv').config()
 const morgan = require('morgan')
 const helmet = require('helmet')
 const mongoConfig = require('./config/mongoConfig')
