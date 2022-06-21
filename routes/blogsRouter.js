@@ -4,7 +4,6 @@ const blogsModel = require('../model/blogSchema')
 const router = express.Router()
 
 
-
 //* GET BLOGS
 router.get('/', authmiddleware, async (req, res) => {
     try {
@@ -17,11 +16,11 @@ router.get('/', authmiddleware, async (req, res) => {
 
 
  //* Create BLOGS 
- router.post('/', authmiddleware, async (req, res) => {
+ router.post('/post', authmiddleware, async (req, res) => {
     const blogData = req.body // gets the data from the request
     console.log(blogData);
     try {
-        const blogs = await blogModel.create(blogData) // create the todo in the db
+        const blogs = await blogsModel.create(blogData) // create the todo in the db
         // send back the response
         res.status(201).json(blogs)
         // res.status(201).json({data: todo})
@@ -53,7 +52,7 @@ router.put('/:id', authmiddleware, async (req, res) => {
     const newBlog = req.body
      try {
          //* find the todo by the id
-         const blog = await TodoModel.findByIdAndUpdate(id, newBlog, {new: true})
+         const blog = await blogsModel.findByIdAndUpdate(id, newBlog, {new: true})
          res.status(202).json(blog)
      } catch (error) {
          console.log(error)
