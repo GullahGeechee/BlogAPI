@@ -24,10 +24,10 @@ app.use('/auth', authRouter)
 
 
 app.get('/', (req, res) => {
-    res.status(200).json("Welcome to my API!")
+    res.status(200).json("It burns when IP xD")
 })
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port: ${PORT}`);
+    console.log(`All aboard Port API..`);
     mongoConfig()
 })

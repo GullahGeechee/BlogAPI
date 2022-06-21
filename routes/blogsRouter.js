@@ -60,7 +60,7 @@ router.put('/:id', authmiddleware, async (req, res) => {
      }
 })
 
-//! DELETE A TODO
+//*-- DELETE A TODO
 router.delete('/:id', authmiddleware, async (req, res) => {
     const post = req.params.id
 
