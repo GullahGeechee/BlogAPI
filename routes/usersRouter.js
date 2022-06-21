@@ -31,6 +31,18 @@ router.post('/', [
             return res.json({msg: "User already exist!"})
         }
 
+// * -- NOT WORKING ASK WHY TUESDAY POSTMAN NOT Working 
+            router.get('/:id', async (req,res) => {
+            const id = req.params.id
+        
+            try {
+              const blog = await blogModel.findById(id)
+              res.status(200).json(blog)  
+            } catch (error) {
+                console.error(error);
+            }
+        })
+
         //* -- New User
         // 1 Create the salt
         const SALT = await bcrypt.genSalt(10)
@@ -59,8 +71,10 @@ router.post('/', [
         
     } catch (error) {
         console.log(error)
-        res.status(400).json('Bad request!')
+        res.status(400).json('Bad request! BAD!')
     }
 })
+
+
 
 module.exports = router

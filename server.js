@@ -24,7 +24,7 @@ app.use('/auth', authRouter)
 
 
 app.get('/', (req, res) => {
-    res.status(200).json("It burns when IP xD")
+    res.status(200).json("It burns when IP")
 })
 
 app.listen(PORT, () => {

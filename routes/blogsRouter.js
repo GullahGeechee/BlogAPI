@@ -47,7 +47,7 @@ router.get('/:id', authmiddleware, async (req, res) => {
 })
 
 
-//* UPDATE TODO BY ID
+//* -- UPDATE BLOG POST BY ID
 router.put('/:id', authmiddleware, async (req, res) => {
     const id = req.params.id
     const newBlog = req.body
@@ -60,13 +60,13 @@ router.put('/:id', authmiddleware, async (req, res) => {
      }
 })
 
-//*-- DELETE A TODO
+//*-- DELETE A BLOG POST
 router.delete('/:id', authmiddleware, async (req, res) => {
     const post = req.params.id
 
     try {
         const blog = await blogModel.findByIdAndDelete(id)
-        res.status(200).json({msg: 'Todo was deleted!'})
+        res.status(200).json({msg: 'Post was deleted!'})
     } catch (error) {
         console.log(error);
     }
