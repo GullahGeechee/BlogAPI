@@ -7,15 +7,18 @@ const mongoConfig = require('./config/mongoConfig')
 const blogsRouter = require('./routes/blogsRouter')
 const usersRouter = require('./routes/usersRouter')
 const authRouter = require('./routes/authRouter')
+const cors = require('cors')
+
 
 const app = express()
-const PORT = process.env.PORT || 6000
+const PORT = process.env.PORT || 6001
 
 
 //* middleware
 app.use(express.json())
 app.use(morgan('dev'))
 app.use(helmet())
+app.use(cors())
 
 //* Routers
 app.use('/blogs', blogsRouter)

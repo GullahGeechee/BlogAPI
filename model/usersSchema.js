@@ -13,12 +13,12 @@ const usersSchema = mongoose.Schema({
     },
     birthday: {
         type: Date,
-        required: true,
+       
     
     },
     age: {
         type: Number,
-        required: true,
+   
        // check this 
     },
 
