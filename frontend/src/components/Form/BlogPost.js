@@ -4,7 +4,7 @@ import axios from 'axios';
 const BlogPost = (props) => {
     const [formData, setFormData] = useState({
         title: '',
-        details: ''
+        details: '',
     });
 
     const handleSubmit = (e) => {

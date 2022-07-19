@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 const Home = (props) => {
-    const [blogs, setBlog] = useState(null)
+    const [blogs, setBlogs] = useState(null)
     const history = useHistory()
     useEffect(() => {
         axios.get('http://localhost:6001/blogs', {
@@ -14,26 +14,26 @@ const Home = (props) => {
                 'x-auth-token': localStorage.getItem('userToken'),
             },
         })
-        .then(res => setBlog(res.data)).catch(err => console.error(err))
+        .then(res => setBlogs(res.data)).catch(err => console.error(err))
         .catch((err) => console.error(err));
     }, []);
 
-    const handleDelete = (blogs) => {
+    const handleDelete = (blog) => {
         // console.log(blogs)
-        axios.delete('http://localhost:6001/blogs/${blogs._id}', {
+        axios.delete(`http://localhost:6001/blogs/${blog._id}`, {
             headers: {
             "x-auth-token": localStorage.getItem('userToken'), 
             },
         })
         .then((res) => {
             console.log(res.data);
-            setBlog([...blogs.filter((blogstatus) => blogstatus._id !== blogs._id)])
+            setBlogs([...blogs.filter((blogstatus) => blogstatus._id !== blog._id)])
             })
         .catch(err => console.error(err)); 
     };
 
-    const handleUpdate = () => {
-        history.push(`/update/${blogs._id}`)
+    const handleUpdate = (blog) => {
+        history.push(`/update/${blog._id}`)
 
 
     }
@@ -42,24 +42,24 @@ const Home = (props) => {
         <div>
         <NavBar user={props.user}/>
             <h1>Home Page</h1>
-        <BlogPost setBlog={setBlog} blogs={blogs}/>
+        <BlogPost setBlogs={setBlogs} blogs={blogs}/>
     
-            {blogs && blogs.map(blogs => (
-                <div key={blogs._id}>
-                <h6>{blogs.title} </h6>
+            {blogs && blogs.map(blog => (
+                <div key={blog._id}>
+                <h6>{blog.title} </h6>
                
-                <h6>{blogs.details}{""}
-                {blogs.user === props.user._id && (
+                <h6>{blog.details}{""}
+                {blog.user === props.user._id && (
                 <span 
                 className='btn btn-danger'
                 style={{marginRight: '5px'}}
-                 onClick={() => handleDelete(blogs)}>X</span>
+                 onClick={() => handleDelete(blog)}>X</span>
             )}
             
-            {blogs.user === props.user._id && (
+            {blog.user === props.user._id && (
                 <span
                   className="btn btn-info"
-                  onClick={() => handleUpdate(blogs)}
+                  onClick={() => handleUpdate(blog)}
                 >
                   Update
                 </span>

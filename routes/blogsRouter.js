@@ -18,6 +18,7 @@ router.get('/', authmiddleware, async (req, res) => {
  //* Create BLOGS 
  router.post('/post', authmiddleware, async (req, res) => {
     const blogData = req.body // gets the data from the request
+    blogData.user = req.user.id
     console.log(blogData);
     try {
         const blogs = await blogsModel.create(blogData) // create the todo in the db
