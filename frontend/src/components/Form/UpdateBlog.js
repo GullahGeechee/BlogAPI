@@ -40,9 +40,9 @@ const UpdateBlog = (props) => {
           <input
             className="form-control"
             type="text"
-            id="title"
-            name="title"
-            value={blogs.title}
+            id="blog_title"
+            name="blog_title"
+            value={blogs.blog_title}
             onChange={(e) =>
               setBlog({ ...blogs, [e.target.id]: e.target.value })
             }
@@ -55,9 +55,9 @@ const UpdateBlog = (props) => {
             <input
               className="form-control"
               type="text"
-              id="details"
-              name="details"
-              value={blogs.details}
+              id="blog_content"
+              name="blog_content"
+              value={blogs.blog_content}
               onChange={(e) =>
                 setBlog({ ...blogs, [e.target.id]: e.target.value })
               }

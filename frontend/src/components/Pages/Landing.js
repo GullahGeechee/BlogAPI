@@ -1,10 +1,15 @@
 import RegisterForm from "../Form/RegisterForm";
 import LoginForm from "../Form/LoginForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from 'axios';
+
 
 const Landing = (props) => {
+
   const [hasAccount, setHasAccount] = useState(false);
   const {setUser} = props
+
+  
   return (
     <div>
       <h1>Landing Page</h1>

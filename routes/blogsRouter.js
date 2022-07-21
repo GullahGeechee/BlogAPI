@@ -1,3 +1,4 @@
+const { request } = require('express')
 const express = require('express')
 const authmiddleware = require('../middleware/authmiddleware')
 const blogsModel = require('../model/blogSchema')
@@ -16,9 +17,10 @@ router.get('/', authmiddleware, async (req, res) => {
 
 
  //* Create BLOGS 
- router.post('/post', authmiddleware, async (req, res) => {
+ router.post('/', authmiddleware, async (req, res) => {
     const blogData = req.body // gets the data from the request
     blogData.user = req.user.id
+    blogData.created_by = req.user.id
     console.log(blogData);
     try {
         const blogs = await blogsModel.create(blogData) // create the todo in the db
@@ -62,11 +64,13 @@ router.put('/:id', authmiddleware, async (req, res) => {
 
 //*-- DELETE A BLOG POST
 router.delete('/:id', authmiddleware, async (req, res) => {
-    const post = req.params.id
-
+    const id = req.params.id
+    console.log(id)
     try {
-        const blog = await blogModel.findByIdAndDelete(id)
+        // const blog = await blogsModel.findByIdAndDelete(id)
+        await blogsModel.findByIdAndDelete(id)
         res.status(200).json({msg: 'Post was deleted!'})
+
     } catch (error) {
         console.log(error);
     }

@@ -46,9 +46,9 @@ const Home = (props) => {
     
             {blogs && blogs.map(blog => (
                 <div key={blog._id}>
-                <h6>{blog.title} </h6>
+                <h6>{blog.blog_title} </h6>
                
-                <h6>{blog.details}{""}
+                <h6>{blog.blog_content}{""}
                 {blog.user === props.user._id && (
                 <span 
                 className='btn btn-danger'

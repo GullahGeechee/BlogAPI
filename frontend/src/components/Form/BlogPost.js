@@ -3,8 +3,8 @@ import axios from 'axios';
 
 const BlogPost = (props) => {
     const [formData, setFormData] = useState({
-        title: '',
-        details: '',
+      blog_title: '',
+      blog_content: '',
     });
 
     const handleSubmit = (e) => {
@@ -25,9 +25,9 @@ const BlogPost = (props) => {
           <input
             className="form-control"
             type="text"
-            id="title"
-            name="title"
-            value={formData.title}
+            id="blog_title"
+            name="blog_title"
+            value={formData.blog_title}
             onChange={(e) =>
               setFormData({ ...formData, [e.target.id]: e.target.value })
             }
@@ -40,9 +40,9 @@ const BlogPost = (props) => {
             <input
               className="form-control"
               type="text"
-              id="details"
-              name="details"
-              value={formData.details}
+              id="blog_content"
+              name="blog_content"
+              value={formData.blog_content}
               onChange={(e) =>
                 setFormData({ ...formData, [e.target.id]: e.target.value })
               }
