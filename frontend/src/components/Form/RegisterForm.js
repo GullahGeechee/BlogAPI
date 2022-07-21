@@ -34,7 +34,7 @@ const RegisterForm = (props) => {
   }
 
   return (
-    <div>
+    <div className="Login-container">
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
         <label className="form-label" htmlFor="username">Username</label>

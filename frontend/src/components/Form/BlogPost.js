@@ -18,6 +18,7 @@ const BlogPost = (props) => {
          
 
     return (
+      <div className="container">
         <form onSubmit={handleSubmit}>
           <label className="form-label" htmlFor="title">
             Title
@@ -51,6 +52,7 @@ const BlogPost = (props) => {
     
           <input type="submit" className="btn btn-success" />
         </form>
+        </div>
     )
 }
 

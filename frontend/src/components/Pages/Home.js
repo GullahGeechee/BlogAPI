@@ -39,7 +39,7 @@ const Home = (props) => {
     }
 
     return(
-        <div>
+        <div className="home">
         <NavBar user={props.user}/>
             <h1>Home Page</h1>
         <BlogPost setBlogs={setBlogs} blogs={blogs}/>

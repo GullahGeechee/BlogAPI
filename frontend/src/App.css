@@ -1,1 +1,13 @@
+:root {
+    --aqua: #5EE6EB;
+    --hotpink: #F900BF;
+    --black: #000000;
+    --white: #FFFFFF;
+    --purple: #9900F0;
+    --gray: #DDDDDD;
+  }
+
+.register{
+    background-image: url('https://pbs.twimg.com/media/FNU2GbrXwAALAEi?format=jpg&name=large');
+}
 
